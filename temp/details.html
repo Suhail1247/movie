@@ -1,3 +1,15 @@
- {{movie.desc}}  {{movie.year}}
-<br>
-<a href="/"><button>HOME</button></a>
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-5">
+<img src="{{movie.imgs.url}}" alt="{{movie.name}}" width="500" height="400">
+    </div>
+    <div class="col-sm-7">
+    <b>{{movie.name}}</b><br>
+    {{movie.desc}}<br><br>
+        <pre>
+<a href="{% url 'mvapp:update' movie.id %} "><button class="btn-warning" >UPDATE</button></a>  <a href="{% url 'mvapp:delete' movie.id %} "><button class="btn-danger" >DELETE</button></a>  <a href="/"><button>HOME</button></a></pre>
+    </div>
+</div>
+{% endblock %}
